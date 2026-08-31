@@ -119,6 +119,7 @@ function injectSeo(html, route) {
     `<meta name="twitter:card" content="summary" />`,
     `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
+    `<link rel="alternate" type="application/rss+xml" title="FlowCook RSS" href="${SITE_URL}${BASE}/feed.xml" />`,
   ]
   if (recipe) {
     tags.push(
@@ -205,7 +206,36 @@ try {
   const robots = `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}${BASE}/sitemap.xml\n`
   await writeFile(path.join(DIST, 'robots.txt'), robots)
 
-  console.log(`\nDone: ${ok} routes prerendered, sitemap + robots written.`)
+  // RSS feed (newest first)
+  const rfc822 = (d) => new Date(d + 'T09:00:00+09:00').toUTCString()
+  const sorted = [...RECIPES].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
+  const items = sorted.map(
+    (r) => `    <item>
+      <title>${escapeHtml(r.title)}</title>
+      <link>${SITE_URL}${BASE}/recipe/${r.slug}</link>
+      <guid isPermaLink="true">${SITE_URL}${BASE}/recipe/${r.slug}</guid>
+      <pubDate>${rfc822(r.createdAt)}</pubDate>
+      <description>${escapeHtml(r.description)}</description>
+      <category>${escapeHtml(r.category)}</category>
+    </item>`,
+  )
+  const newest = rfc822(sorted[0].createdAt)
+  const feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FlowCook</title>
+    <link>${SITE_URL}${BASE}/</link>
+    <description>Automation recipes that just work when you follow them. Tested on a real setup.</description>
+    <language>en</language>
+    <lastBuildDate>${newest}</lastBuildDate>
+    <atom:link href="${SITE_URL}${BASE}/feed.xml" rel="self" type="application/rss+xml" />
+${items.join('\n')}
+  </channel>
+</rss>
+`
+  await writeFile(path.join(DIST, 'feed.xml'), feed)
+
+  console.log(`\nDone: ${ok} routes prerendered, sitemap + robots + feed written.`)
 } finally {
   preview.kill()
 }

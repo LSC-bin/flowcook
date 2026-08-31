@@ -97,6 +97,11 @@ export default function Layout({ children }: { children: ReactNode }) {
                   Terms of Service
                 </Link>
               </li>
+              <li>
+                <a href={`${import.meta.env.BASE_URL}feed.xml`} className="hover:text-primary">
+                  RSS Feed
+                </a>
+              </li>
             </ul>
           </div>
         </div>
