@@ -107,6 +107,10 @@ function jsonLdFor(r, url) {
 function injectSeo(html, route) {
   const { title, description, recipe } = metaFor(route)
   const url = SITE_URL + BASE + route
+  const gc = process.env.GOATCOUNTER_CODE
+  const analytics = gc
+    ? `\n    <script data-goatcounter="https://${gc}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`
+    : ''
   const tags = [
     `<title>${escapeHtml(title)}</title>`,
     `<meta name="description" content="${escapeHtml(description)}" />`,
@@ -131,7 +135,7 @@ function injectSeo(html, route) {
   const ld = recipe ? `\n    <script type="application/ld+json">${jsonLdFor(recipe, url)}</script>` : ''
 
   // Replace the existing <title> and meta description, then inject the rest.
-  let out = html.replace(/<title>[\s\S]*?<\/title>/, block + ld)
+  let out = html.replace(/<title>[\s\S]*?<\/title>/, block + ld + analytics)
   out = out.replace(/<meta name="description"[^>]*>\s*/g, '')
   return out
 }
