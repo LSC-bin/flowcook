@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FlowCook</title>
+    <link>https://lsc-bin.github.io/flowcook/</link>
+    <description>Automation recipes that just work when you follow them. Tested on a real setup.</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://lsc-bin.github.io/flowcook/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Weekly AI Spend Report So API Bills Never Sneak Up</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/weekly-ai-spend-report</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/weekly-ai-spend-report</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A weekly job checks your LLM provider dashboard and sends a short summary of last week's usage and cost — with a strict no-guessing rule.</description>
+      <category>Data</category>
+    </item>
+    <item>
+      <title>One-Shot Countdown Reminders for Big-Event Prep (D-90, D-60, D-30)</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/countdown-checklist-reminders</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/countdown-checklist-reminders</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Schedule one-time reminders at 90, 60, and 30 days before a trip or deadline — each message names the exact next action, so nothing slips.</description>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>Get Tomorrow's Schedule the Night Before — Silent When Empty</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/tomorrow-calendar-reminder</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/tomorrow-calendar-reminder</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A nightly job reads your calendar and messages you tomorrow's events. If there is nothing scheduled, it stays completely silent.</description>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>Turn One Blog Post into a Ready-to-Post Social Thread</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/blog-post-to-social-thread</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/blog-post-to-social-thread</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Give the agent a finished article and get back a social thread draft in your voice — hook, key points, and a call to read more.</description>
+      <category>Marketing</category>
+    </item>
+    <item>
+      <title>Turn Meeting Transcripts into Minutes with Action Items</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/meeting-minutes-from-transcript</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/meeting-minutes-from-transcript</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Feed a meeting transcript to your agent and get structured minutes: decisions, action items with owners, and open questions.</description>
+      <category>Communication</category>
+    </item>
+    <item>
+      <title>One Daily Digest for Your GitHub Repos</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/github-issue-daily-digest</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/github-issue-daily-digest</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Instead of notification spam, get one digest a day: new issues, PRs awaiting review, and CI failures across your repos.</description>
+      <category>Development</category>
+    </item>
+    <item>
+      <title>Disk Space Watchdog That Only Speaks When It Hurts</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/disk-space-watchdog</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/disk-space-watchdog</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A cron job checks disk usage and alerts only when a partition crosses your threshold — silent otherwise.</description>
+      <category>Development</category>
+    </item>
+    <item>
+      <title>Extract Text and Tables from Korean HWP Files</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/korean-hwp-text-extract</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/korean-hwp-text-extract</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Read .hwp / .hwpx documents (the Korean standard format) with an open-source library and pull out clean text.</description>
+      <category>Data</category>
+    </item>
+    <item>
+      <title>Summarize Any YouTube Video Before Watching It</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/youtube-video-summary</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/youtube-video-summary</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Fetch a video transcript and get a structured summary — key points, timestamps, and whether it is worth your time.</description>
+      <category>Data</category>
+    </item>
+    <item>
+      <title>Track Your Favorite Blogs Without Opening Them</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/blog-rss-watchlist</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/blog-rss-watchlist</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Subscribe to a list of blogs and RSS feeds, and receive one digest a day with only the new posts.</description>
+      <category>Communication</category>
+    </item>
+    <item>
+      <title>Watch a Product Price and Get Alerted at Your Target</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/product-price-monitor</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/product-price-monitor</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A scheduled job checks a product page every few hours and messages you the moment the price drops below your target.</description>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>Two-Way Sync Between Google Drive and a Local Folder</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/google-drive-local-sync</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/google-drive-local-sync</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A script that keeps a local folder and a Google Drive folder in sync, both ways, on a schedule.</description>
+      <category>Data</category>
+    </item>
+    <item>
+      <title>Get a Daily Morning News Briefing on Telegram</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/daily-news-briefing</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/daily-news-briefing</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A cron job collects global and local news every morning, summarizes it, and delivers it to Telegram.</description>
+      <category>Productivity</category>
+    </item>
+  </channel>
+</rss>

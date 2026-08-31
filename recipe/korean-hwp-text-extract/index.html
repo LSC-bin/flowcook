@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/flowcook/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Text and Tables from Korean HWP Files — FlowCook</title>
+    <link rel="canonical" href="https://lsc-bin.github.io/flowcook/recipe/korean-hwp-text-extract" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="FlowCook" />
+    <meta property="og:title" content="Extract Text and Tables from Korean HWP Files — FlowCook" />
+    <meta property="og:description" content="Read .hwp / .hwpx documents (the Korean standard format) with an open-source library and pull out clean text." />
+    <meta property="og:url" content="https://lsc-bin.github.io/flowcook/recipe/korean-hwp-text-extract" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Extract Text and Tables from Korean HWP Files — FlowCook" />
+    <meta name="twitter:description" content="Read .hwp / .hwpx documents (the Korean standard format) with an open-source library and pull out clean text." />
+    <link rel="alternate" type="application/rss+xml" title="FlowCook RSS" href="https://lsc-bin.github.io/flowcook/feed.xml" />
+    <meta property="article:published_time" content="2026-08-31" />
+    <meta property="article:modified_time" content="2026-08-31" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Extract Text and Tables from Korean HWP Files","description":"Read .hwp / .hwpx documents (the Korean standard format) with an open-source library and pull out clean text.","url":"https://lsc-bin.github.io/flowcook/recipe/korean-hwp-text-extract","totalTime":"PT30M","step":[{"@type":"HowToStep","position":1,"name":"Install the tools in a virtualenv","text":"HWP is a Korean government/school document format. The pyhwp package parses the binary .hwp container and exposes text extraction."},{"@type":"HowToStep","position":2,"name":"Extract text from a file","text":"Open the file through the library and read the combined body text. This works for reports, official letters, and school documents."},{"@type":"HowToStep","position":3,"name":"Deal with .hwpx and old files","text":".hwpx is XML inside a ZIP — unzip and parse the section XML directly. Old or DRM-protected files may fail to open; if a file was edited in Hancom Office, ask the author to also save a .hwpx copy."},{"@type":"HowToStep","position":4,"name":"Feed the text to your agent","text":"Once extraction works, point your agent at a folder of HWP files: it can summarize, convert to Markdown, or answer questions about the contents without opening the office suite."}]}</script>
+    <script data-goatcounter="https://dltjrcks1.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://lsc-bin.github.io/flowcook/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FlowCook">
+    <meta property="og:title" content="FlowCook — You installed an AI agent. Now what?">
+    <meta property="og:description" content="Automation recipes that just work when you follow them. Every recipe is tested on a real setup before publishing. Free, no account needed.">
+    <meta property="og:url" content="https://lsc-bin.github.io/flowcook/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FlowCook — You installed an AI agent. Now what?">
+    <meta name="twitter:description" content="Automation recipes that just work when you follow them. Every recipe is tested on a real setup before publishing. Free, no account needed.">
+    <link rel="alternate" type="application/rss+xml" title="FlowCook RSS" href="https://lsc-bin.github.io/flowcook/feed.xml">
+    <script data-goatcounter="https://dltjrcks1.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <script>
+      // dark mode init (no flash)
+      const t = localStorage.getItem('flowcook-theme')
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      }
+    </script>
+    <script type="module" crossorigin="" src="/flowcook/assets/index-i8dLRxnj.js"></script>
+    <link rel="stylesheet" crossorigin="" href="/flowcook/assets/index-IcylBRli.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  
+
+
+</body></html>

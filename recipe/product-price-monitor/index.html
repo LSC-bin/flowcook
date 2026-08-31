@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/flowcook/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch a Product Price and Get Alerted at Your Target — FlowCook</title>
+    <link rel="canonical" href="https://lsc-bin.github.io/flowcook/recipe/product-price-monitor" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="FlowCook" />
+    <meta property="og:title" content="Watch a Product Price and Get Alerted at Your Target — FlowCook" />
+    <meta property="og:description" content="A scheduled job checks a product page every few hours and messages you the moment the price drops below your target." />
+    <meta property="og:url" content="https://lsc-bin.github.io/flowcook/recipe/product-price-monitor" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Watch a Product Price and Get Alerted at Your Target — FlowCook" />
+    <meta name="twitter:description" content="A scheduled job checks a product page every few hours and messages you the moment the price drops below your target." />
+    <link rel="alternate" type="application/rss+xml" title="FlowCook RSS" href="https://lsc-bin.github.io/flowcook/feed.xml" />
+    <meta property="article:published_time" content="2026-08-31" />
+    <meta property="article:modified_time" content="2026-08-31" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Watch a Product Price and Get Alerted at Your Target","description":"A scheduled job checks a product page every few hours and messages you the moment the price drops below your target.","url":"https://lsc-bin.github.io/flowcook/recipe/product-price-monitor","totalTime":"PT15M","step":[{"@type":"HowToStep","position":1,"name":"Pick the product and your target price","text":"Find the product page URL. Note the current price and the price you would actually buy at. Be realistic — a target that never triggers is useless."},{"@type":"HowToStep","position":2,"name":"Ask your agent to set up the watch","text":"Describe the watch in one sentence. The agent creates a cron job that fetches the page, extracts the price, and compares it against your target."},{"@type":"HowToStep","position":3,"name":"Make the job silent when nothing happens","text":"The job must not message you every check. Only alert on two events: the price hit the target, or the page broke (product removed or price selector changed) so you know the watch is dead."},{"@type":"HowToStep","position":4,"name":"Test it once","text":"Set the target temporarily above the current price to confirm the alert path works end to end, then set it back to your real target."}]}</script>
+    <script data-goatcounter="https://dltjrcks1.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://lsc-bin.github.io/flowcook/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FlowCook">
+    <meta property="og:title" content="FlowCook — You installed an AI agent. Now what?">
+    <meta property="og:description" content="Automation recipes that just work when you follow them. Every recipe is tested on a real setup before publishing. Free, no account needed.">
+    <meta property="og:url" content="https://lsc-bin.github.io/flowcook/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FlowCook — You installed an AI agent. Now what?">
+    <meta name="twitter:description" content="Automation recipes that just work when you follow them. Every recipe is tested on a real setup before publishing. Free, no account needed.">
+    <link rel="alternate" type="application/rss+xml" title="FlowCook RSS" href="https://lsc-bin.github.io/flowcook/feed.xml">
+    <script data-goatcounter="https://dltjrcks1.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <script>
+      // dark mode init (no flash)
+      const t = localStorage.getItem('flowcook-theme')
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      }
+    </script>
+    <script type="module" crossorigin="" src="/flowcook/assets/index-i8dLRxnj.js"></script>
+    <link rel="stylesheet" crossorigin="" href="/flowcook/assets/index-IcylBRli.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  
+
+
+</body></html>
