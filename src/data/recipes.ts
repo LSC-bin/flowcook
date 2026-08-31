@@ -419,6 +419,145 @@ export const recipe10: Recipe = {
   updatedAt: '2026-08-31',
 }
 
+export const recipe11: Recipe = {
+  slug: 'tomorrow-calendar-reminder',
+  title: "Get Tomorrow's Schedule the Night Before — Silent When Empty",
+  description:
+    "A nightly job reads your calendar and messages you tomorrow's events. If there is nothing scheduled, it stays completely silent.",
+  category: 'Productivity',
+  difficulty: 'beginner',
+  estimatedMinutes: 15,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'Google Calendar API', url: 'https://developers.google.com/calendar', required: true },
+  ],
+  steps: [
+    {
+      title: 'Connect your calendar (read-only is enough)',
+      content:
+        'Authorize the agent with the Calendar API using a read-only scope. All the job needs is to list events, never to create or edit them.',
+    },
+    {
+      title: 'Write a script that only speaks when there is something to say',
+      content:
+        'Fetch tomorrow\'s events and print a formatted list. Print nothing when the day is empty — an empty output means no message is sent at all. This "silent watchdog" pattern keeps reminders useful instead of noisy.',
+      code: {
+        language: 'python',
+        content:
+          "events = list_events(tomorrow)\nif not events:\n    sys.exit(0)          # silent: nothing is delivered\nfor e in events:\n    print(f\"{start_time(e)} {title(e)}\")",
+      },
+    },
+    {
+      title: 'Schedule it for the evening',
+      content:
+        'Run it once a day around 8 PM so you can plan your evening around tomorrow. Register it as a script-only job: stdout is the message verbatim.',
+      code: { language: 'bash', content: '0 20 * * * /usr/bin/python3 /home/user/tomorrow_reminder.py' },
+    },
+    {
+      title: 'Test both paths',
+      content:
+        'Verify a day with events delivers the list, and an empty day delivers nothing. The silence is the feature — if you ever get a blank message, the empty-check is broken.',
+    },
+  ],
+  files: [],
+  tags: ['calendar', 'reminder', 'cron', 'silent'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+export const recipe12: Recipe = {
+  slug: 'countdown-checklist-reminders',
+  title: 'One-Shot Countdown Reminders for Big-Event Prep (D-90, D-60, D-30)',
+  description:
+    'Schedule one-time reminders at 90, 60, and 30 days before a trip or deadline — each message names the exact next action, so nothing slips.',
+  category: 'Productivity',
+  difficulty: 'beginner',
+  estimatedMinutes: 10,
+  tools: [{ name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true }],
+  steps: [
+    {
+      title: 'Break the prep into dated milestones',
+      content:
+        'For a trip: D-90 visa/ESTA application, D-60 travel insurance, D-30 eSIM and roaming. Each milestone gets a date and one concrete action — vague reminders get ignored.',
+    },
+    {
+      title: 'Schedule each as a one-shot job',
+      content:
+        'Create three single-run jobs on those dates. The prompt is the reminder text itself, written as a direct instruction with the action in it.',
+      code: {
+        language: 'text',
+        content:
+          'You are 90 days out from your trip.\nToday, prepare or submit your ESTA application.\nTell me in one short message.',
+      },
+    },
+    {
+      title: 'Keep messages short and actionable',
+      content:
+        'One line of context plus one action. "D-60: look into travel insurance today." beats a paragraph of tips you will not read.',
+    },
+    {
+      title: 'List the schedule once to confirm',
+      content:
+        'Print the pending one-shot jobs and check dates and order. That is the whole maintenance — they fire once and are done.',
+    },
+  ],
+  files: [],
+  tags: ['travel', 'reminder', 'one-shot', 'checklist'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+export const recipe13: Recipe = {
+  slug: 'weekly-ai-spend-report',
+  title: 'A Weekly AI Spend Report So API Bills Never Sneak Up',
+  description:
+    'A weekly job checks your LLM provider dashboard and sends a short summary of last week\'s usage and cost — with a strict no-guessing rule.',
+  category: 'Data',
+  difficulty: 'intermediate',
+  estimatedMinutes: 25,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'Provider dashboard (e.g. OpenRouter)', url: 'https://openrouter.ai', required: true },
+  ],
+  steps: [
+    {
+      title: 'Find what is actually verifiable',
+      content:
+        'Open your provider dashboard and note which numbers exist: weekly spend, token usage, per-model breakdown. The report can only be as honest as its sources.',
+    },
+    {
+      title: 'Write the prompt with a no-guessing rule',
+      content:
+        'Tell the job to report only confirmed numbers and to say "not verifiable" for anything it cannot see. Without this rule, summaries drift into confident fiction.',
+      code: {
+        language: 'text',
+        content:
+          'Check last week\'s usage and cost on the provider dashboard.\nSummarize briefly.\nDo not guess anything you cannot confirm — say it is unverifiable instead.',
+      },
+    },
+    {
+      title: 'Schedule it weekly',
+      content: 'Once a week, same day, delivered to your messaging app. A weekly rhythm catches drift early; daily is noise.',
+      code: { language: 'bash', content: '0 22 * * 0   # every Sunday' },
+    },
+    {
+      title: 'Add a threshold once you know your baseline',
+      content:
+        'After a few weeks you know a normal range. Ask the job to flag weeks that exceed it, so the report only demands attention when something changed.',
+    },
+  ],
+  files: [],
+  tags: ['cost', 'monitoring', 'llm', 'report'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
 export const RECIPES: Recipe[] = [
   recipe1,
   recipe2,
@@ -430,4 +569,7 @@ export const RECIPES: Recipe[] = [
   recipe8,
   recipe9,
   recipe10,
+  recipe11,
+  recipe12,
+  recipe13,
 ]
