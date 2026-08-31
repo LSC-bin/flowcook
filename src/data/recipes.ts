@@ -558,6 +558,411 @@ export const recipe13: Recipe = {
   updatedAt: '2026-08-31',
 }
 
+// Recipe 14: monitor competitor news with cited digests
+export const recipe14: Recipe = {
+  slug: 'competitor-news-monitor',
+  title: 'Monitor Competitor News Without Reading the News Yourself',
+  description: 'A scheduled job watches named companies for material news and delivers a digest where every claim carries a source link.',
+  category: 'Marketing',
+  difficulty: 'intermediate',
+  estimatedMinutes: 25,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'Web search provider', required: true },
+  ],
+  steps: [
+    {
+      title: 'Define the watchlist and what counts',
+      content: 'List the companies you care about and define "material": launches, pricing, funding, layoffs, outages. If you do not define this, the job will drown you in trivia.',
+    },
+    {
+      title: 'Write the monitoring prompt with citation rules',
+      content: 'Require a source URL next to every claim and forbid speculation. A no-guessing rule keeps the digest trustworthy.',
+      code: {
+        language: 'text',
+        content:
+          'Watch these companies: [Acme, Globex, Initech].\nEvery weekday at 9 AM, search for news from the last 24h.\nReport only material events: launches, pricing, funding, layoffs, outages.\nEvery item needs a source URL. If you cannot verify something, say so.',
+      },
+    },
+    {
+      title: 'Schedule it and review for a week',
+      content: 'Run it daily for a week, then tune: drop sources that only produce noise, add terms the job keeps missing.',
+    },
+    {
+      title: 'Keep it silent on empty days',
+      content: 'Tell the job to send nothing when there is no material news. A monitor that speaks every day gets muted.',
+    },
+  ],
+  files: [],
+  tags: ['competitors', 'monitoring', 'news', 'marketing'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 15: turn scanned PDFs into searchable text
+export const recipe15: Recipe = {
+  slug: 'scanned-pdf-ocr',
+  title: 'Turn Scanned PDFs into Searchable Text',
+  description: 'OCR a stack of scanned documents and feed the clean text into your agent for summarizing or filing.',
+  category: 'Data',
+  difficulty: 'intermediate',
+  estimatedMinutes: 30,
+  tools: [
+    { name: 'Python 3.11+', required: true },
+    { name: 'ocrmypdf', url: 'https://github.com/ocrmypdf/OCRmyPDF', required: true },
+  ],
+  steps: [
+    {
+      title: 'Install the OCR toolchain',
+      content: 'ocrmypdf wraps Tesseract and keeps your PDF layout. Install the language packs you need.',
+      code: { language: 'bash', content: 'pip install ocrmypdf\nsudo apt install tesseract-ocr tesseract-ocr-eng tesseract-ocr-kor' },
+    },
+    {
+      title: 'OCR the document',
+      content: 'Run it on a scan. The output looks identical but now has a text layer.',
+      code: { language: 'bash', content: 'ocrmypdf -l eng+kor input_scan.pdf output_searchable.pdf' },
+    },
+    {
+      title: 'Extract the text',
+      content: 'Pull the text layer out with any PDF library, then hand it to your agent.',
+      code: { language: 'python', content: 'import pymupdf\ndoc = pymupdf.open("output_searchable.pdf")\ntext = "\\n".join(page.get_text() for page in doc)' },
+    },
+    {
+      title: 'Ask your agent what you actually need',
+      content: 'Summaries, action items, tables as CSV — extraction is the boring part, analysis is where the agent earns its keep.',
+    },
+  ],
+  files: [],
+  tags: ['pdf', 'ocr', 'extraction', 'tesseract'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 16: deploy a static site with prerendering
+export const recipe16: Recipe = {
+  slug: 'github-pages-prerender-deploy',
+  title: 'Deploy a Static Site to GitHub Pages with Prerendering',
+  description: 'Ship a client-side app as fully prerendered static HTML so search engines and link previews actually see your content.',
+  category: 'Development',
+  difficulty: 'intermediate',
+  estimatedMinutes: 45,
+  tools: [
+    { name: 'Node.js 18+', required: true },
+    { name: 'Playwright', url: 'https://playwright.dev', required: true },
+    { name: 'GitHub Pages', url: 'https://pages.github.com', required: true },
+  ],
+  steps: [
+    {
+      title: 'Build for the subpath',
+      content: 'GitHub Pages serves from /your-repo/, not /. Set the base path at build time or every asset link 404s.',
+      code: { language: 'bash', content: 'VITE_BASE_PATH=/flowcook/ npm run build' },
+    },
+    {
+      title: 'Prerender every route',
+      content: 'A headless browser renders each route to static HTML. This is what makes SEO and social previews work for a JS app.',
+      code: {
+        language: 'bash',
+        content: 'SITE_URL=https://user.github.io BASE_PATH=/flowcook/ node scripts/prerender.mjs',
+      },
+    },
+    {
+      title: 'Push dist to a gh-pages branch',
+      content: 'Clone into a temp dir, copy the build output over, push the gh-pages branch. Keep source on main, artifacts on gh-pages.',
+    },
+    {
+      title: 'Verify like a stranger',
+      content: 'Check the live site, the sitemap, and one route in an incognito tab. Also fetch a page with curl and confirm the HTML contains real content, not an empty root div.',
+    },
+  ],
+  files: [],
+  tags: ['github pages', 'seo', 'prerender', 'deployment'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 17: track new arXiv papers
+export const recipe17: Recipe = {
+  slug: 'arxiv-paper-watchlist',
+  title: 'Track New arXiv Papers in Your Field Automatically',
+  description: 'A daily job pulls fresh arXiv submissions matching your keywords and sends you only the ones worth reading.',
+  category: 'Development',
+  difficulty: 'beginner',
+  estimatedMinutes: 20,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'arXiv API', url: 'https://info.arxiv.org/help/api/', required: true },
+  ],
+  steps: [
+    {
+      title: 'Pick tight search terms',
+      content: 'Broad terms like "machine learning" produce 200 papers a day. Pick a narrow intersection, like a method plus an application area.',
+    },
+    {
+      title: 'Create the daily job',
+      content: 'The arXiv API is public and needs no key. Have the agent fetch yesterday\'s submissions and filter.',
+      code: {
+        language: 'text',
+        content:
+          'Every morning, query the arXiv API for yesterday\'s submissions\nmatching [your keywords]. Send me the top 3 most relevant papers:\ntitle, one-line takeaway, and the abs link. Skip duplicates.',
+      },
+    },
+    {
+      title: 'Ask for relevance ranking',
+      content: 'A list of titles is cheap. Ask the agent to rank by relevance to your stated focus and say why — that is the part humans are bad at doing daily.',
+    },
+  ],
+  files: [],
+  tags: ['arxiv', 'research', 'papers', 'daily digest'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 18: triage a messy inbox
+export const recipe18: Recipe = {
+  slug: 'email-inbox-triage',
+  title: 'Triage a Messy Inbox Without Reading Everything',
+  description: 'Point your agent at your inbox, get threads ranked by urgency with suggested replies — you only approve.',
+  category: 'Communication',
+  difficulty: 'intermediate',
+  estimatedMinutes: 30,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'IMAP access to your mailbox', required: true },
+  ],
+  steps: [
+    {
+      title: 'Connect read-only first',
+      content: 'Use an app password with read-only IMAP access. The agent should be able to read and draft, but never send without your approval.',
+    },
+    {
+      title: 'Define your triage rules',
+      content: 'Spell out what is urgent for you: sender domains, deadlines within 48 hours, threads waiting on you. Generic triage is useless; yours is specific.',
+    },
+    {
+      title: 'Get ranked output with drafts',
+      content: 'Ask for three buckets — reply today, reply this week, ignore — plus a one-paragraph draft reply for the top items.',
+    },
+    {
+      title: 'Review, then send',
+      content: 'You edit or approve each draft. The agent prepares; you decide. That split is what keeps email safe to automate.',
+    },
+  ],
+  files: [],
+  tags: ['email', 'triage', 'imap', 'drafts'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 19: voice memos to searchable notes
+export const recipe19: Recipe = {
+  slug: 'voice-memo-to-note',
+  title: 'Turn Voice Memos into Clean, Searchable Notes',
+  description: 'Drop a voice recording, get back a timestamped, cleaned-up text note filed in your notes folder.',
+  category: 'Productivity',
+  difficulty: 'beginner',
+  estimatedMinutes: 15,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'whisper.cpp or local Whisper', url: 'https://github.com/ggerganov/whisper.cpp', required: true },
+  ],
+  steps: [
+    {
+      title: 'Set up local transcription',
+      content: 'A local Whisper model keeps voice data on your machine. The "small" model is a good speed/accuracy tradeoff for memos.',
+    },
+    {
+      title: 'Tell the agent what a finished note looks like',
+      content: 'Do not stop at a raw transcript. Ask for filler words removed, a title, and a date prefix so notes sort themselves.',
+      code: {
+        language: 'text',
+        content:
+          'Transcribe this audio, then clean it into a note:\n- remove filler words and false starts\n- add a short title\n- save as YYYY-MM-DD_title.md in my notes folder',
+      },
+    },
+    {
+      title: 'Send memos from your phone',
+      content: 'Forward the audio file to your agent over Telegram or email. Within a minute you have a note where grep can find it.',
+    },
+  ],
+  files: [],
+  tags: ['voice', 'transcription', 'whisper', 'notes'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 20: weekly spreadsheet report from raw data
+export const recipe20: Recipe = {
+  slug: 'weekly-spreadsheet-report',
+  title: 'Auto-Generate a Weekly Spreadsheet Report from Raw Data',
+  description: 'A Friday job reads your raw data files and produces a formatted weekly report with pivot-style summaries.',
+  category: 'Data',
+  difficulty: 'intermediate',
+  estimatedMinutes: 35,
+  tools: [
+    { name: 'Python 3.11+', required: true },
+    { name: 'pandas', url: 'https://pandas.pydata.org', required: true },
+    { name: 'openpyxl', url: 'https://openpyxl.readthedocs.io', required: true },
+  ],
+  steps: [
+    {
+      title: 'Fix the output format first',
+      content: 'Before writing any code, decide the exact sheet layout: columns, groupings, totals row. Changing your mind later costs more than deciding now.',
+    },
+    {
+      title: 'Build the transform once',
+      content: 'One script: read the week\'s raw CSVs, aggregate, and write a styled workbook. Save Korean or other non-ASCII CSVs as UTF-8 with BOM so Excel displays them correctly.',
+      code: {
+        language: 'python',
+        content:
+          'import pandas as pd\ndf = pd.concat([pd.read_csv(f) for f in week_files])\nsummary = df.groupby("category").agg(count=("id","count"), total=("amount","sum"))\nsummary.to_excel("weekly_report.xlsx")',
+      },
+    },
+    {
+      title: 'Schedule it for Friday afternoon',
+      content: 'Run it when the week is effectively over. The agent verifies the file opens and reports the row counts.',
+    },
+    {
+      title: 'Let the agent narr the numbers',
+      content: 'Alongside the file, ask for three sentences: what changed vs last week, what looks off, what needs attention. Numbers without narration get ignored.',
+    },
+  ],
+  files: [],
+  tags: ['excel', 'report', 'pandas', 'automation'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 21: morning smart home scene
+export const recipe21: Recipe = {
+  slug: 'smart-home-morning-scene',
+  title: 'A Morning Scene That Adjusts to Your Calendar',
+  description: 'Lights and devices wake up differently depending on what your calendar says today holds.',
+  category: 'Other',
+  difficulty: 'beginner',
+  estimatedMinutes: 10,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'OpenHue CLI', url: 'https://www.openhue.io', required: true },
+  ],
+  steps: [
+    {
+      title: 'Make a basic scene work',
+      content: 'Get one command to set your lights to a warm bright state. That is your scene primitive.',
+      code: { language: 'bash', content: 'openhue scene set bedroom "Energize"' },
+    },
+    {
+      title: 'Branch on the calendar',
+      content: 'The agent checks your first event. Early meeting? Lights on at 6:30. Nothing before 10? Stay dark and skip the wake-up ping.',
+    },
+    {
+      title: 'Schedule it as a script-only job',
+      content: 'Pure script, no LLM per run: a small program reads the calendar and fires the scene. Zero tokens, zero cost, every morning.',
+    },
+  ],
+  files: [],
+  tags: ['smart home', 'hue', 'calendar', 'morning routine'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 22: recover blocked pages
+export const recipe22: Recipe = {
+  title: 'Recover Blocked or Paywalled Web Pages',
+  slug: 'blocked-page-recovery',
+  description: 'A fallback ladder that gets the text of a page when the front door is locked — caches, mirrors, and archives.',
+  category: 'Data',
+  difficulty: 'beginner',
+  estimatedMinutes: 15,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'Wayback Machine', url: 'https://web.archive.org', required: false },
+  ],
+  steps: [
+    {
+      title: 'Try the direct fetch first',
+      content: 'Half of "blocked" pages are just bot filters that a plain HTTP fetch with a real user agent gets past.',
+    },
+    {
+      title: 'Fall back through the ladder',
+      content: 'Google cache, the Wayback Machine, archive.today, then a rendered browser fetch. Each rung beats nothing.',
+      code: {
+        language: 'text',
+        content:
+          'Fetch this URL. If blocked:\n1. try the Wayback Machine (newest snapshot)\n2. try archive.today\n3. render it in a headless browser\nReturn the clean text with a note about which source worked.',
+      },
+    },
+    {
+      title: 'Note provenance',
+      content: 'Archived copies can be days or years old. Always record the snapshot date so you know how stale the content is.',
+    },
+  ],
+  files: [],
+  tags: ['web scraping', 'archive', 'paywall', 'fallback'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
+// Recipe 23: QA your own web app
+export const recipe23: Recipe = {
+  slug: 'dogfood-your-webapp',
+  title: 'Dogfood Your Own Web App Before Users Do',
+  description: 'Send your agent through your web app like a confused new user, and get a bug report with screenshots.',
+  category: 'Development',
+  difficulty: 'intermediate',
+  estimatedMinutes: 30,
+  tools: [
+    { name: 'Hermes Agent', url: 'https://github.com/NousResearch/hermes-agent', required: true },
+    { name: 'Browser automation', required: true },
+  ],
+  steps: [
+    {
+      title: 'Define the user journey',
+      content: 'List the 3–5 flows a real visitor takes: land on home, find the thing, use the thing, leave. Vague "test my app" prompts produce vague reports.',
+    },
+    {
+      title: 'Ask for evidence with every finding',
+      content: 'Each reported issue needs a screenshot or the exact console error. No evidence, no bug.',
+      code: {
+        language: 'text',
+        content:
+          'Explore this site as a first-time user. For every issue found, capture:\n- URL and what you were doing\n- screenshot\n- console/network errors if any\nClassify: broken / confusing / cosmetic.',
+      },
+    },
+    {
+      title: 'Test the edges too',
+      content: 'Empty states, long text, no-JS fetch of the HTML, mobile viewport. Users find these within minutes; you never will.',
+    },
+    {
+      title: 'Re-run after each fix',
+      content: 'The same prompt becomes your regression pass. Rerun it after deploy and diff the findings.',
+    },
+  ],
+  files: [],
+  tags: ['qa', 'testing', 'browser automation', 'ux'],
+  author: 'flowcook',
+  verified: true,
+  createdAt: '2026-08-31',
+  updatedAt: '2026-08-31',
+}
+
 export const RECIPES: Recipe[] = [
   recipe1,
   recipe2,
@@ -572,4 +977,14 @@ export const RECIPES: Recipe[] = [
   recipe11,
   recipe12,
   recipe13,
+  recipe14,
+  recipe15,
+  recipe16,
+  recipe17,
+  recipe18,
+  recipe19,
+  recipe20,
+  recipe21,
+  recipe22,
+  recipe23,
 ]
