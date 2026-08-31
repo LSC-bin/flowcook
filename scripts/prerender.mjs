@@ -161,9 +161,12 @@ function dumpDom(url) {
 
 // ---- static preview server ----
 const port = 4173
+// VITE_BASE_PATH must match the build-time base, otherwise vite preview
+// cannot resolve subpath asset URLs and falls back to serving index.html.
 const preview = spawn('npx', ['vite', 'preview', '--port', String(port), '--strictPort'], {
   cwd: ROOT,
   stdio: 'ignore',
+  env: { ...process.env, VITE_BASE_PATH: BASE + '/' },
 })
 async function waitForServer() {
   for (let i = 0; i < 40; i++) {
