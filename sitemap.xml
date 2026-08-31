@@ -85,4 +85,54 @@
     <lastmod>2026-08-31</lastmod>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/competitor-news-monitor</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/scanned-pdf-ocr</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/github-pages-prerender-deploy</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/arxiv-paper-watchlist</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/email-inbox-triage</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/voice-memo-to-note</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/weekly-spreadsheet-report</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/smart-home-morning-scene</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/blocked-page-recovery</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lsc-bin.github.io/flowcook/recipe/dogfood-your-webapp</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>

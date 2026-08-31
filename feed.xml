@@ -8,6 +8,86 @@
     <lastBuildDate>Mon, 31 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://lsc-bin.github.io/flowcook/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Dogfood Your Own Web App Before Users Do</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/dogfood-your-webapp</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/dogfood-your-webapp</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Send your agent through your web app like a confused new user, and get a bug report with screenshots.</description>
+      <category>Development</category>
+    </item>
+    <item>
+      <title>Recover Blocked or Paywalled Web Pages</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/blocked-page-recovery</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/blocked-page-recovery</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A fallback ladder that gets the text of a page when the front door is locked — caches, mirrors, and archives.</description>
+      <category>Data</category>
+    </item>
+    <item>
+      <title>A Morning Scene That Adjusts to Your Calendar</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/smart-home-morning-scene</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/smart-home-morning-scene</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Lights and devices wake up differently depending on what your calendar says today holds.</description>
+      <category>Other</category>
+    </item>
+    <item>
+      <title>Auto-Generate a Weekly Spreadsheet Report from Raw Data</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/weekly-spreadsheet-report</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/weekly-spreadsheet-report</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A Friday job reads your raw data files and produces a formatted weekly report with pivot-style summaries.</description>
+      <category>Data</category>
+    </item>
+    <item>
+      <title>Turn Voice Memos into Clean, Searchable Notes</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/voice-memo-to-note</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/voice-memo-to-note</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Drop a voice recording, get back a timestamped, cleaned-up text note filed in your notes folder.</description>
+      <category>Productivity</category>
+    </item>
+    <item>
+      <title>Triage a Messy Inbox Without Reading Everything</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/email-inbox-triage</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/email-inbox-triage</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Point your agent at your inbox, get threads ranked by urgency with suggested replies — you only approve.</description>
+      <category>Communication</category>
+    </item>
+    <item>
+      <title>Track New arXiv Papers in Your Field Automatically</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/arxiv-paper-watchlist</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/arxiv-paper-watchlist</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A daily job pulls fresh arXiv submissions matching your keywords and sends you only the ones worth reading.</description>
+      <category>Development</category>
+    </item>
+    <item>
+      <title>Deploy a Static Site to GitHub Pages with Prerendering</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/github-pages-prerender-deploy</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/github-pages-prerender-deploy</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Ship a client-side app as fully prerendered static HTML so search engines and link previews actually see your content.</description>
+      <category>Development</category>
+    </item>
+    <item>
+      <title>Turn Scanned PDFs into Searchable Text</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/scanned-pdf-ocr</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/scanned-pdf-ocr</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>OCR a stack of scanned documents and feed the clean text into your agent for summarizing or filing.</description>
+      <category>Data</category>
+    </item>
+    <item>
+      <title>Monitor Competitor News Without Reading the News Yourself</title>
+      <link>https://lsc-bin.github.io/flowcook/recipe/competitor-news-monitor</link>
+      <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/competitor-news-monitor</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A scheduled job watches named companies for material news and delivers a digest where every claim carries a source link.</description>
+      <category>Marketing</category>
+    </item>
+    <item>
       <title>A Weekly AI Spend Report So API Bills Never Sneak Up</title>
       <link>https://lsc-bin.github.io/flowcook/recipe/weekly-ai-spend-report</link>
       <guid isPermaLink="true">https://lsc-bin.github.io/flowcook/recipe/weekly-ai-spend-report</guid>

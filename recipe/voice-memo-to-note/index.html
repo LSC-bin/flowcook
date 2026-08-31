@@ -3,20 +3,20 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/flowcook/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Tomorrow's Schedule the Night Before — Silent When Empty — FlowCook</title>
-    <link rel="canonical" href="https://lsc-bin.github.io/flowcook/recipe/tomorrow-calendar-reminder" />
+    <title>Turn Voice Memos into Clean, Searchable Notes — FlowCook</title>
+    <link rel="canonical" href="https://lsc-bin.github.io/flowcook/recipe/voice-memo-to-note" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="FlowCook" />
-    <meta property="og:title" content="Get Tomorrow's Schedule the Night Before — Silent When Empty — FlowCook" />
-    <meta property="og:description" content="A nightly job reads your calendar and messages you tomorrow's events. If there is nothing scheduled, it stays completely silent." />
-    <meta property="og:url" content="https://lsc-bin.github.io/flowcook/recipe/tomorrow-calendar-reminder" />
+    <meta property="og:title" content="Turn Voice Memos into Clean, Searchable Notes — FlowCook" />
+    <meta property="og:description" content="Drop a voice recording, get back a timestamped, cleaned-up text note filed in your notes folder." />
+    <meta property="og:url" content="https://lsc-bin.github.io/flowcook/recipe/voice-memo-to-note" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Get Tomorrow's Schedule the Night Before — Silent When Empty — FlowCook" />
-    <meta name="twitter:description" content="A nightly job reads your calendar and messages you tomorrow's events. If there is nothing scheduled, it stays completely silent." />
+    <meta name="twitter:title" content="Turn Voice Memos into Clean, Searchable Notes — FlowCook" />
+    <meta name="twitter:description" content="Drop a voice recording, get back a timestamped, cleaned-up text note filed in your notes folder." />
     <link rel="alternate" type="application/rss+xml" title="FlowCook RSS" href="https://lsc-bin.github.io/flowcook/feed.xml" />
     <meta property="article:published_time" content="2026-08-31" />
     <meta property="article:modified_time" content="2026-08-31" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Get Tomorrow's Schedule the Night Before — Silent When Empty","description":"A nightly job reads your calendar and messages you tomorrow's events. If there is nothing scheduled, it stays completely silent.","url":"https://lsc-bin.github.io/flowcook/recipe/tomorrow-calendar-reminder","totalTime":"PT15M","step":[{"@type":"HowToStep","position":1,"name":"Connect your calendar (read-only is enough)","text":"Authorize the agent with the Calendar API using a read-only scope. All the job needs is to list events, never to create or edit them."},{"@type":"HowToStep","position":2,"name":"Write a script that only speaks when there is something to say","text":"Fetch tomorrow's events and print a formatted list. Print nothing when the day is empty — an empty output means no message is sent at all. This \"silent watchdog\" pattern keeps reminders useful instead of noisy."},{"@type":"HowToStep","position":3,"name":"Schedule it for the evening","text":"Run it once a day around 8 PM so you can plan your evening around tomorrow. Register it as a script-only job: stdout is the message verbatim."},{"@type":"HowToStep","position":4,"name":"Test both paths","text":"Verify a day with events delivers the list, and an empty day delivers nothing. The silence is the feature — if you ever get a blank message, the empty-check is broken."}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Turn Voice Memos into Clean, Searchable Notes","description":"Drop a voice recording, get back a timestamped, cleaned-up text note filed in your notes folder.","url":"https://lsc-bin.github.io/flowcook/recipe/voice-memo-to-note","totalTime":"PT15M","step":[{"@type":"HowToStep","position":1,"name":"Set up local transcription","text":"A local Whisper model keeps voice data on your machine. The \"small\" model is a good speed/accuracy tradeoff for memos."},{"@type":"HowToStep","position":2,"name":"Tell the agent what a finished note looks like","text":"Do not stop at a raw transcript. Ask for filler words removed, a title, and a date prefix so notes sort themselves."},{"@type":"HowToStep","position":3,"name":"Send memos from your phone","text":"Forward the audio file to your agent over Telegram or email. Within a minute you have a note where grep can find it."}]}</script>
     <script data-goatcounter="https://dltjrcks1.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <link rel="canonical" href="https://lsc-bin.github.io/flowcook/">
     <meta property="og:type" content="website">
