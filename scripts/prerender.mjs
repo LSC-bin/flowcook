@@ -179,13 +179,43 @@ async function waitForServer() {
   throw new Error('vite preview did not start')
 }
 
+// Guard against a stale preview server squatting on the port with a wrong
+// base path: the SPA fallback would then serve index.html for every asset
+// and all pages would prerender as empty shells. Verify the JS bundle the
+// built index.html references is actually served as JavaScript.
+async function verifyAssetsServed() {
+  const indexHtml = await readFile(path.join(DIST, 'index.html'), 'utf8')
+  // Match only the app's module bundle (type="module"), not injected
+  // analytics scripts like goatcounter which also have a .js src.
+  const m = indexHtml.match(/<script[^>]*type="module"[^>]*src="([^"]+\.js)"/)
+  if (!m) return // nothing to check
+  const res = await fetch(`http://127.0.0.1:${port}${m[1]}`)
+  const type = res.headers.get('content-type') || ''
+  if (!res.ok || !type.includes('javascript')) {
+    throw new Error(
+      `preview server on port ${port} serves ${m[1]} as ${type} (${res.status}). ` +
+        `Likely a stale vite preview holding the port with a wrong base path, or a stale dist/. ` +
+        `Kill stray vite processes, rebuild, and retry.`,
+    )
+  }
+}
+
 try {
   await waitForServer()
+  await verifyAssetsServed()
   let ok = 0
   for (const route of routes) {
     const html = await dumpDom(`http://127.0.0.1:${port}${BASE}${route}`)
     if (!html.includes('<div id="root">')) {
       throw new Error(`unexpected dump for ${route}`)
+    }
+    // Reject empty-shell renders: the rendered root must contain content.
+    const rootStart = html.indexOf('<div id="root">')
+    const rootEnd = html.indexOf('<script', rootStart)
+    const rootHtml = rootStart >= 0 ? html.slice(rootStart, rootEnd === -1 ? undefined : rootEnd) : ''
+    const rootText = rootHtml.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
+    if (rootText.length < 50) {
+      throw new Error(`route ${route} prerendered as an empty shell (root text: ${rootText.length} chars)`)
     }
     const out = injectSeo(html, route)
     const dir = path.join(DIST, route === '/' ? '' : route)
